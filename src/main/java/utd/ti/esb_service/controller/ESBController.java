@@ -72,6 +72,34 @@ public class ESBController extends BaseController {
         }
     }
 
+    @PostMapping("/promote")
+    public ResponseEntity<?> promoteUser(
+            @RequestBody Map<String, String> requestBody,
+            @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        
+        // Validar el token
+        if (!auth.validateToken(token)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Token inválido o expirado"));
+        }
+    
+        try {
+            // Reenviar la solicitud al servicio de usuarios
+            String response = usersWebClient.post()
+                    .uri("/app/users/promote")
+                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                    .header(HttpHeaders.AUTHORIZATION, token)
+                    .bodyValue(requestBody)
+                    .retrieve()
+                    .bodyToMono(String.class)
+                    .block();
+    
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return handleWebClientException(e, "promover usuario");
+        }
+    }
+
     @GetMapping("/clientes/{id}")
     public ResponseEntity<?> getClienteById(
             @PathVariable Long id,
