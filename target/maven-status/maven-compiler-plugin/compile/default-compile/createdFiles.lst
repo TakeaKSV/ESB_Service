@@ -1,0 +1,17 @@
+utd\ti\esb_service\controller\ProductoController.class
+utd\ti\esb_service\controller\BaseController.class
+utd\ti\esb_service\config\JacksonConfig.class
+utd\ti\esb_service\utils\Auth.class
+utd\ti\esb_service\filter\AuthFilter.class
+utd\ti\esb_service\exception\GlobalExceptionHandler.class
+utd\ti\esb_service\filter\RequestLoggingFilter.class
+utd\ti\esb_service\model\GenericResponse.class
+utd\ti\esb_service\config\WebClientConfig.class
+utd\ti\esb_service\config\CacheConfig.class
+utd\ti\esb_service\controller\UserController.class
+utd\ti\esb_service\model\User.class
+utd\ti\esb_service\config\WebConfig.class
+utd\ti\esb_service\config\AppConfig.class
+utd\ti\esb_service\controller\ESBController.class
+utd\ti\esb_service\config\AuthInterceptor.class
+utd\ti\esb_service\EsbServiceApplication.class
