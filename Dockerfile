@@ -13,6 +13,8 @@ WORKDIR /app
 # Copiar el JAR de la etapa builder
 COPY --from=builder /app/target/*.jar app.jar
 
+ENV JAVA_TOOL_OPTIONS="-Xmx256m"
+
 EXPOSE 8081
 
 CMD ["java", "-jar", "app.jar"]
